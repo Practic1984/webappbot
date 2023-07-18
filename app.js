@@ -13,7 +13,7 @@ formElement.addEventListener('submit', (e) => {
   Telegram.WebApp.onEvent('mainButtonClicked', function(){
     tg.sendData(fio)
     tg.sendData(phone)
-  }
+  })
 });
 
 // let tg = window.Telegram.WebApp;
