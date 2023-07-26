@@ -28,10 +28,10 @@ tg.MainButton.textColor = "#ffffff"; //изменяем цвет текста к
    Telegram.WebApp.onEvent('mainButtonClicked', function(){
 
       let q1 = document.getElementById("q1");
-      let q2 = document.getElementById("q1");
-      let q3 = document.getElementById("q1");
-      let q4 = document.getElementById("q1");
-      let q5 = document.getElementById("q1");
+      let q2 = document.getElementById("q2");
+      let q3 = document.getElementById("q3");
+      let q4 = document.getElementById("q4");
+      let q5 = document.getElementById("q5");
 
       tg.sendData(JSON.stringify({
          q1: q1.value, 
