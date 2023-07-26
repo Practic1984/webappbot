@@ -1,25 +1,55 @@
+let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
 
-let tg = window.Telegram.WebApp;
-tg.expand();
+   tg.expand(); //расширяем на все окно  
 
-const formElement = document.getElementById('form1'); // извлекаем элемент формы
-formElement.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
-  // теперь можно извлечь данные
-  const fio = formData.get('fio'); // fio
-  const phone = formData.get('phone'); // phone
-  console.log(fio, phone)
-  Telegram.WebApp.onEvent('mainButtonClicked', function(){
-    tg.sendData(fio)
-    tg.sendData(phone)
-  })
-});
+   tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
+   tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
+   tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
+   tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
+   tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
-// let tg = window.Telegram.WebApp;
-// tg.expand();
-// let item = "";
-// let fio = document.getElementById("fio1");
-// let phone = document.getElementById("phone1");
-// let email = document.getElementById("email");
+   let btn = document.getElementById("form1"); //получаем кнопку скрыть/показать 
 
+   btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+      if (tg.MainButton.isVisible){ //если кнопка показана 
+        //  tg.MainButton.hide() //скрываем кнопку 
+        let fio = document.getElementById("fio1");
+        let phone = document.getElementById("phone1");
+        let email = document.getElementById("email1");
+        tg.sendData(JSON.stringify({fio: fio.value}))
+        // tg.sendData(fio, phone, email)
+      }
+      else{ //иначе
+         tg.MainButton.show() //показываем 
+      }
+   });
+
+
+
+   Telegram.WebApp.onEvent('mainButtonClicked', function(){
+      let fio = document.getElementById("fio1");
+      let phone = document.getElementById("phone1");
+      let email = document.getElementById("email1");
+      tg.sendData(fio, phone, email); 
+      //при клике на основную кнопку отправляем данные в строковом виде
+   });
+
+
+   let usercard = document.getElementById("usercard"); //получаем блок usercard 
+
+   let profName = document.createElement('p'); //создаем параграф
+   profName.innerText = `${tg.initDataUnsafe.user.first_name}
+   ${tg.initDataUnsafe.user.last_name}
+   ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
+   //выдем имя, "фамилию", через тире username и код языка
+   usercard.appendChild(profName); //добавляем 
+
+   let userid = document.createElement('p'); //создаем еще параграф 
+   userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
+   usercard.appendChild(userid); //добавляем
+
+
+   //работает только в attachment menu
+   // let pic = document.createElement('img'); //создаем img
+   // pic.src = tg.initDataUnsafe.user.photo_url; //задаём src 
+   // usercard.appendChild(pic); //добавляем элемент в карточку 
