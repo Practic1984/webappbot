@@ -2,11 +2,11 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
 
    tg.expand(); //расширяем на все окно  
 
-   tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
-   tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
+   tg.MainButton.text = "Отправить"; //изменяем текст кнопки 
+//    tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
    tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
    tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
-   tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
+//    tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
    let btn = document.getElementById("form1"); //получаем кнопку скрыть/показать 
    tg.MainButton.show()
@@ -29,7 +29,8 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
       let fio = document.getElementById("fio1");
       let phone = document.getElementById("phone1");
       let email = document.getElementById("email1");
-      tg.sendData(fio.value, phone.value, email.value)
+    //   tg.sendData(fio.value, phone.value, email.value)
+      tg.sendData({fio: fio.value, phone: phone.value, email: email.value})
     //   tg.sendData(JSON.stringify({fio: fio.value, phone: phone.value, email: email.value}))
       tg.MainButton.hide()  
     //   tg.sendData(fio, phone, email); 
