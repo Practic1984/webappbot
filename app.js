@@ -29,8 +29,8 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
       let fio = document.getElementById("fio1");
       let phone = document.getElementById("phone1");
       let email = document.getElementById("email1");
-      tg.sendData(JSON.stringify({fio: fio.value}, {phone: phone.value}, {email: email.value}))
-      tg.MainButton.close()  
+      tg.sendData(JSON.stringify({fio: fio.value, phone: phone.value, email: email.value}))
+      tg.MainButton.hide()  
     //   tg.sendData(fio, phone, email); 
       //при клике на основную кнопку отправляем данные в строковом виде
    });
