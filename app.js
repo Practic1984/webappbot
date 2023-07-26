@@ -9,7 +9,7 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
    tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
    let btn = document.getElementById("form1"); //получаем кнопку скрыть/показать 
-
+   tg.MainButton.show()
 //    btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
 //       if (tg.MainButton.isVisible){ //если кнопка показана 
 //         tg.MainButton.hide() //скрываем кнопку 
@@ -30,7 +30,7 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
       let phone = document.getElementById("phone1");
       let email = document.getElementById("email1");
       tg.sendData(JSON.stringify({fio: fio.value}, {phone: phone.value}, {email: email.value}))
-
+      tg.MainButton.close()  
     //   tg.sendData(fio, phone, email); 
       //при клике на основную кнопку отправляем данные в строковом виде
    });
