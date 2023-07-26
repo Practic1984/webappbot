@@ -3,7 +3,7 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
    tg.expand(); //расширяем на все окно  
 
    tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
-   tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
+   tg.MainButton.setText("Отправить"); //изменяем текст кнопки иначе
    tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
    tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
    tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
@@ -30,24 +30,24 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
       let fio = document.getElementById("fio1");
       let phone = document.getElementById("phone1");
       let email = document.getElementById("email1");
-      tg.sendData(JSON.stringify({fio: fio.value}))
+      tg.sendData(fio.value, phone.value, email.value)
     //   tg.sendData(fio, phone, email); 
       //при клике на основную кнопку отправляем данные в строковом виде
    });
 
 
-   let usercard = document.getElementById("usercard"); //получаем блок usercard 
+//    let usercard = document.getElementById("usercard"); //получаем блок usercard 
 
-   let profName = document.createElement('p'); //создаем параграф
-   profName.innerText = `${tg.initDataUnsafe.user.first_name}
-   ${tg.initDataUnsafe.user.last_name}
-   ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-   //выдем имя, "фамилию", через тире username и код языка
-   usercard.appendChild(profName); //добавляем 
+//    let profName = document.createElement('p'); //создаем параграф
+//    profName.innerText = `${tg.initDataUnsafe.user.first_name}
+//    ${tg.initDataUnsafe.user.last_name}
+//    ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
+//    //выдем имя, "фамилию", через тире username и код языка
+//    usercard.appendChild(profName); //добавляем 
 
-   let userid = document.createElement('p'); //создаем еще параграф 
-   userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-   usercard.appendChild(userid); //добавляем
+//    let userid = document.createElement('p'); //создаем еще параграф 
+//    userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
+//    usercard.appendChild(userid); //добавляем
 
 
    //работает только в attachment menu
