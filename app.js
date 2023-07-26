@@ -34,7 +34,7 @@ tg.MainButton.textColor = "#ffffff"; //изменяем цвет текста к
       console.log(phone)
       console.log(email)
       let push = fio.value + "::" + phone.value + "::" + email.value
-      tg.sendData("text")
+      tg.sendData(push)
     // //   tg.sendData({fio: fio.value, phone: phone.value, email: email.value})
     //   tg.sendData(JSON.stringify({fio: fio.value, phone: phone.value, email: email.value}))
       tg.MainButton.hide()  
