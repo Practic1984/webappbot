@@ -30,8 +30,11 @@ tg.MainButton.textColor = "#ffffff"; //изменяем цвет текста к
       let fio = document.getElementById("fio1");
       let phone = document.getElementById("phone1");
       let email = document.getElementById("email1");
+      console.log(fio)
+      console.log(phone)
+      console.log(email)
       let push = fio.value + "::" + phone.value + "::" + email.value
-      tg.sendData(push)
+      tg.sendData("text")
     // //   tg.sendData({fio: fio.value, phone: phone.value, email: email.value})
     //   tg.sendData(JSON.stringify({fio: fio.value, phone: phone.value, email: email.value}))
       tg.MainButton.hide()  
