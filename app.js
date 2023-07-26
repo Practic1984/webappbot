@@ -10,19 +10,19 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
 
    let btn = document.getElementById("form1"); //получаем кнопку скрыть/показать 
 
-   btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-      if (tg.MainButton.isVisible){ //если кнопка показана 
-        //  tg.MainButton.hide() //скрываем кнопку 
-        let fio = document.getElementById("fio1");
-        let phone = document.getElementById("phone1");
-        let email = document.getElementById("email1");
-        tg.sendData(JSON.stringify({fio: fio.value}))
-        // tg.sendData(fio, phone, email)
-      }
-      else{ //иначе
-         tg.MainButton.show() //показываем 
-      }
-   });
+//    btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+//       if (tg.MainButton.isVisible){ //если кнопка показана 
+//         //  tg.MainButton.hide() //скрываем кнопку 
+//         let fio = document.getElementById("fio1");
+//         let phone = document.getElementById("phone1");
+//         let email = document.getElementById("email1");
+//         tg.sendData(JSON.stringify({fio: fio.value}))
+//         // tg.sendData(fio, phone, email)
+//       }
+//       else{ //иначе
+//          tg.MainButton.show() //показываем 
+//       }
+//    });
 
 
 
@@ -30,7 +30,8 @@ let tg = window.Telegram.WebApp; //получаем объект webapp теле
       let fio = document.getElementById("fio1");
       let phone = document.getElementById("phone1");
       let email = document.getElementById("email1");
-      tg.sendData(fio, phone, email); 
+      tg.sendData(JSON.stringify({fio: fio.value}))
+    //   tg.sendData(fio, phone, email); 
       //при клике на основную кнопку отправляем данные в строковом виде
    });
 
